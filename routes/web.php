@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes(['confirm' => false, 'reset' => false, 'verify' => false]);
+Route::get('/captcha', [App\Http\Controllers\Auth\CaptchaController::class, 'getCaptcha'])->name('captcha');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
