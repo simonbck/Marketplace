@@ -40,6 +40,28 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-end"></label>
+
+                            <div class="col-md-6">
+                                <img src="{{ route('captcha') }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-end">{{ __('Captcha') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required>
+
+                                @error('captcha')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
